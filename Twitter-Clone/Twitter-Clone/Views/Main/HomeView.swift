@@ -16,6 +16,8 @@ fileprivate enum SelectedTabViewIndex: Int {
 
 struct HomeView: View {
     @State fileprivate var selectedIndex: SelectedTabViewIndex = .feed
+    @State var showCreateTweet: Bool = false
+    @State var text: String = ""
 
     var body: some View {
         VStack {
@@ -23,9 +25,17 @@ struct HomeView: View {
                 tabView
                 createTweetButton
             }
+            .sheet(isPresented: $showCreateTweet) {
+                // OnDismiss
+            } content: {
+                CreateTweetView(text: text)
+            }
+
         }
     }
-    
+
+    // MARK: - Create Tweet Button
+
     private var createTweetButton: some View {
         VStack {
             Spacer()
@@ -33,7 +43,7 @@ struct HomeView: View {
                 Spacer()
 
                 Button(action: {
-                    
+                    self.showCreateTweet.toggle()
                 }, label: {
                     Image("tweet")
                         .renderingMode(.template)
@@ -50,7 +60,9 @@ struct HomeView: View {
         .padding(.bottom, 75)
         .padding(.trailing, 20)
     }
-    
+
+    // MARK: - TabView Display
+
     private var tabView: some View {
         TabView {
             FeedView()
