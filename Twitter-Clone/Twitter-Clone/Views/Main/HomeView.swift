@@ -16,53 +16,95 @@ fileprivate enum SelectedTabViewIndex: Int {
 
 struct HomeView: View {
     @State fileprivate var selectedIndex: SelectedTabViewIndex = .feed
+    @State var showCreateTweet: Bool = false
+    @State var text: String = ""
 
     var body: some View {
         VStack {
             ZStack {
-                TabView {
-                    FeedView()
-                        .onTapGesture {
-                            selectedIndex = .feed
-                        }
-                        .tabItem {
-                            Image("Home")
-                                .renderingMode(.template)
-                                .foregroundColor(selectedIndex == .feed ? .backgroundblue : .gray)
-                        }
-                        .tag(SelectedTabViewIndex.feed.rawValue)
-                    SearchView()
-                        .onTapGesture {
-                            selectedIndex = .search
-                        }
-                        .tabItem {
-                            Image("Search")
-                                .renderingMode(.template)
-                                .foregroundColor(selectedIndex == .search ? .backgroundblue : .gray)
-                        }
-                        .tag(SelectedTabViewIndex.search.rawValue)
-                    NotificationsView()
-                        .onTapGesture {
-                            selectedIndex = .notification
-                        }
-                        .tabItem {
-                            Image("Notifications")
-                                .renderingMode(.template)
-                                .foregroundColor(selectedIndex == .notification ? .backgroundblue : .gray)
-                        }
-                        .tag(SelectedTabViewIndex.notification.rawValue)
-                    MessagesView()
-                        .onTapGesture {
-                            selectedIndex = .messaege
-                        }
-                        .tabItem {
-                            Image("Messages")
-                                .renderingMode(.template)
-                                .foregroundColor(selectedIndex == .messaege ? .backgroundblue : .gray)
-                        }
-                        .tag(SelectedTabViewIndex.messaege.rawValue)
-                }
+                tabView
+                createTweetButton
             }
+            .sheet(isPresented: $showCreateTweet) {
+                // OnDismiss
+            } content: {
+                CreateTweetView(text: text)
+            }
+
+        }
+    }
+
+    // MARK: - Create Tweet Button
+
+    private var createTweetButton: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+
+                Button(action: {
+                    self.showCreateTweet.toggle()
+                }, label: {
+                    Image("tweet")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
+                        .background(Color.backgroundblue)
+                        .foregroundColor(Color.white)
+                        .clipShape(Circle())
+                    
+            })
+            }
+        }
+        .padding(.bottom, 75)
+        .padding(.trailing, 20)
+    }
+
+    // MARK: - TabView Display
+
+    private var tabView: some View {
+        TabView {
+            FeedView()
+                .onTapGesture {
+                    selectedIndex = .feed
+                }
+                .tabItem {
+                    Image("Home")
+                        .renderingMode(.template)
+                        .foregroundColor(selectedIndex == .feed ? .backgroundblue : .gray)
+                }
+                .tag(SelectedTabViewIndex.feed.rawValue)
+            SearchView()
+                .onTapGesture {
+                    selectedIndex = .search
+                }
+                .tabItem {
+                    Image("Search")
+                        .renderingMode(.template)
+                        .foregroundColor(selectedIndex == .search ? .backgroundblue : .gray)
+                }
+                .tag(SelectedTabViewIndex.search.rawValue)
+            NotificationsView()
+                .onTapGesture {
+                    selectedIndex = .notification
+                }
+                .tabItem {
+                    Image("Notifications")
+                        .renderingMode(.template)
+                        .foregroundColor(selectedIndex == .notification ? .backgroundblue : .gray)
+                }
+                .tag(SelectedTabViewIndex.notification.rawValue)
+            MessagesView()
+                .onTapGesture {
+                    selectedIndex = .messaege
+                }
+                .tabItem {
+                    Image("Messages")
+                        .renderingMode(.template)
+                        .foregroundColor(selectedIndex == .messaege ? .backgroundblue : .gray)
+                }
+                .tag(SelectedTabViewIndex.messaege.rawValue)
         }
     }
 }
