@@ -15,6 +15,7 @@
 		9967788A29DB3A9D00DEC95F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967788929DB3A9D00DEC95F /* SearchView.swift */; };
 		9967788C29DB3AA700DEC95F /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967788B29DB3AA700DEC95F /* MessagesView.swift */; };
 		9967788F29DB3B0500DEC95F /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967788E29DB3B0500DEC95F /* NotificationsView.swift */; };
+		9967789529DB430800DEC95F /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967789429DB430800DEC95F /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9967788929DB3A9D00DEC95F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		9967788B29DB3AA700DEC95F /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		9967788E29DB3B0500DEC95F /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		9967789429DB430800DEC95F /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		9967782F29DA3BE100DEC95F /* Twitter-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				9967789329DB42FB00DEC95F /* Extensions */,
 				9967788029DB387300DEC95F /* Views */,
 				9967783429DA3BE200DEC95F /* Assets.xcassets */,
 				9967783629DA3BE200DEC95F /* Preview Content */,
@@ -125,6 +128,14 @@
 				9967788E29DB3B0500DEC95F /* NotificationsView.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		9967789329DB42FB00DEC95F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9967789429DB430800DEC95F /* Color+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				9967788829DB3A9400DEC95F /* FeedView.swift in Sources */,
 				9967788C29DB3AA700DEC95F /* MessagesView.swift in Sources */,
 				9967788329DB389F00DEC95F /* HomeView.swift in Sources */,
+				9967789529DB430800DEC95F /* Color+Extensions.swift in Sources */,
 				9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */,
 				9967788F29DB3B0500DEC95F /* NotificationsView.swift in Sources */,
 			);
