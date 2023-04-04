@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909137229DB8FED00EB2393 /* TweetCellView.swift */; };
 		9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */; };
 		9967783529DA3BE200DEC95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783429DA3BE200DEC95F /* Assets.xcassets */; };
 		9967783829DA3BE200DEC95F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783729DA3BE200DEC95F /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9909137229DB8FED00EB2393 /* TweetCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellView.swift; sourceTree = "<group>"; };
 		9967782D29DA3BE100DEC95F /* Twitter-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneApp.swift; sourceTree = "<group>"; };
 		9967783429DA3BE200DEC95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				9967788729DB3A9400DEC95F /* FeedView.swift */,
+				9909137229DB8FED00EB2393 /* TweetCellView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
 				9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */,
 				9967788A29DB3A9D00DEC95F /* SearchView.swift in Sources */,
