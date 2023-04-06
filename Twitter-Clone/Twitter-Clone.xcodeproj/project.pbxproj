@@ -24,6 +24,7 @@
 		9967789529DB430800DEC95F /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967789429DB430800DEC95F /* Color+Extensions.swift */; };
 		9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967789729DB496700DEC95F /* CreateTweetView.swift */; };
 		9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967789A29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift */; };
+		9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4129DE60A700AAEC47 /* MessageCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9967789429DB430800DEC95F /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		9967789729DB496700DEC95F /* CreateTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTweetView.swift; sourceTree = "<group>"; };
 		9967789A29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextFeildRepresentable.swift; sourceTree = "<group>"; };
+		9980CF4129DE60A700AAEC47 /* MessageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9967788B29DB3AA700DEC95F /* MessagesView.swift */,
+				9980CF4129DE60A700AAEC47 /* MessageCellView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */,
 				9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */,
 				9909137629DC738900EB2393 /* SearchCell.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
