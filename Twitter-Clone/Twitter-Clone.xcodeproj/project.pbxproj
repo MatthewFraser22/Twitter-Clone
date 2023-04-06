@@ -27,6 +27,9 @@
 		9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4129DE60A700AAEC47 /* MessageCellView.swift */; };
 		9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4329DF112000AAEC47 /* TopBarView.swift */; };
 		998903E429DF126D0022AF0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E329DF126D0022AF0A /* MainView.swift */; };
+		998903E629DF1A9E0022AF0A /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E529DF1A9E0022AF0A /* SlideMenuView.swift */; };
+		998903E829DF1B8C0022AF0A /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E729DF1B8C0022AF0A /* FollowView.swift */; };
+		998903EA29DF1DAA0022AF0A /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E929DF1DAA0022AF0A /* MenuButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		9980CF4129DE60A700AAEC47 /* MessageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 		9980CF4329DF112000AAEC47 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		998903E329DF126D0022AF0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		998903E529DF1A9E0022AF0A /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
+		998903E729DF1B8C0022AF0A /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
+		998903E929DF1DAA0022AF0A /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 				9967788229DB389F00DEC95F /* HomeView.swift */,
 				9980CF4329DF112000AAEC47 /* TopBarView.swift */,
 				998903E329DF126D0022AF0A /* MainView.swift */,
+				998903E529DF1A9E0022AF0A /* SlideMenuView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -183,6 +190,8 @@
 			children = (
 				9967789A29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift */,
 				9909137729DC81F500EB2393 /* SearchBarView.swift */,
+				998903E729DF1B8C0022AF0A /* FollowView.swift */,
+				998903E929DF1DAA0022AF0A /* MenuButtonView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -258,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */,
+				998903E629DF1A9E0022AF0A /* SlideMenuView.swift in Sources */,
 				998903E429DF126D0022AF0A /* MainView.swift in Sources */,
+				998903EA29DF1DAA0022AF0A /* MenuButtonView.swift in Sources */,
 				9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */,
 				9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */,
 				9909137629DC738900EB2393 /* SearchCell.swift in Sources */,
@@ -269,6 +280,7 @@
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
 				9967788A29DB3A9D00DEC95F /* SearchView.swift in Sources */,
 				9967788829DB3A9400DEC95F /* FeedView.swift in Sources */,
+				998903E829DF1B8C0022AF0A /* FollowView.swift in Sources */,
 				9967788C29DB3AA700DEC95F /* MessagesView.swift in Sources */,
 				9967788329DB389F00DEC95F /* HomeView.swift in Sources */,
 				9967789529DB430800DEC95F /* Color+Extensions.swift in Sources */,
