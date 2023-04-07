@@ -27,6 +27,9 @@
 		9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4129DE60A700AAEC47 /* MessageCellView.swift */; };
 		9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4329DF112000AAEC47 /* TopBarView.swift */; };
 		998903E429DF126D0022AF0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E329DF126D0022AF0A /* MainView.swift */; };
+		99CE056B29DFA33A001651ED /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056A29DFA33A001651ED /* FollowView.swift */; };
+		99CE056D29DFA357001651ED /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056C29DFA357001651ED /* MenuButtonView.swift */; };
+		99CE056F29DFA36D001651ED /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056E29DFA36D001651ED /* SlideMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		9980CF4129DE60A700AAEC47 /* MessageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 		9980CF4329DF112000AAEC47 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		998903E329DF126D0022AF0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		99CE056A29DFA33A001651ED /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
+		99CE056C29DFA357001651ED /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
+		99CE056E29DFA36D001651ED /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 				9967788229DB389F00DEC95F /* HomeView.swift */,
 				9980CF4329DF112000AAEC47 /* TopBarView.swift */,
 				998903E329DF126D0022AF0A /* MainView.swift */,
+				99CE056E29DFA36D001651ED /* SlideMenuView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -183,6 +190,8 @@
 			children = (
 				9967789A29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift */,
 				9909137729DC81F500EB2393 /* SearchBarView.swift */,
+				99CE056A29DFA33A001651ED /* FollowView.swift */,
+				99CE056C29DFA357001651ED /* MenuButtonView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -260,10 +269,12 @@
 				9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */,
 				998903E429DF126D0022AF0A /* MainView.swift in Sources */,
 				9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */,
+				99CE056D29DFA357001651ED /* MenuButtonView.swift in Sources */,
 				9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */,
 				9909137629DC738900EB2393 /* SearchCell.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
 				9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */,
+				99CE056B29DFA33A001651ED /* FollowView.swift in Sources */,
 				9909137A29DCA5F300EB2393 /* SearchUserCell.swift in Sources */,
 				9909137829DC81F500EB2393 /* SearchBarView.swift in Sources */,
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
@@ -275,6 +286,7 @@
 				9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */,
 				9909137E29DCBDE700EB2393 /* NotificationCell.swift in Sources */,
 				9967788F29DB3B0500DEC95F /* NotificationsView.swift in Sources */,
+				99CE056F29DFA36D001651ED /* SlideMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
