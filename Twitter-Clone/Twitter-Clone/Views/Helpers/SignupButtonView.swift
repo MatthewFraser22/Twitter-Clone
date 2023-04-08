@@ -18,42 +18,40 @@ struct SignupButtonView: View {
     
 
     var body: some View {
-        Button {
-            print("Sign in with google")
-        } label: {
-            HStack(spacing: nil) {
-                if signupMethod != .createAccount {
+        if signupMethod != .createAccount {
+            Button {
+                print("Sign in with \(signupMethod.rawValue)")
+            } label: {
+                HStack(spacing: nil) {
                     Image("\(signupMethod.rawValue)")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-
+                    
                     Text("Continue with \(signupMethod.rawValue.capitalized)")
                         .fontWeight(.bold)
                         .font(.title3)
                         .foregroundColor(.black)
                         .padding()
-                } else {
-                    RoundedRectangle(cornerRadius: 36)
-                        .foregroundColor(.backgroundblue)
-                        .frame(width: 320, height: 60, alignment: .center)
-                }
-
-            }.overlay {
-                if signupMethod != .createAccount {
+                }.overlay {
                     RoundedRectangle(cornerRadius: 36)
                         .stroke(Color.black, lineWidth: 1)
                         .opacity(0.3)
                         .frame(width: 320, height: 60, alignment: .center)
-                } else {
+                    
+                }
+            }
+        } else {
+            RoundedRectangle(cornerRadius: 36)
+                .foregroundColor(.backgroundblue)
+                .frame(width: 320, height: 60, alignment: .center)
+                .overlay {
                     Text("Create Account")
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
                         .font(.title3)
                         .padding()
                 }
-                
-            }
         }
     }
 }
