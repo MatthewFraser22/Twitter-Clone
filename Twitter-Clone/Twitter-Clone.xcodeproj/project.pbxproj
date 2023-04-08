@@ -27,6 +27,8 @@
 		9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4129DE60A700AAEC47 /* MessageCellView.swift */; };
 		9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CF4329DF112000AAEC47 /* TopBarView.swift */; };
 		998903E429DF126D0022AF0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998903E329DF126D0022AF0A /* MainView.swift */; };
+		9993C54729E2079D00727DD9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993C54629E2079D00727DD9 /* RegisterView.swift */; };
+		9993C54929E208EF00727DD9 /* CustomAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */; };
 		99CE056B29DFA33A001651ED /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056A29DFA33A001651ED /* FollowView.swift */; };
 		99CE056D29DFA357001651ED /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056C29DFA357001651ED /* MenuButtonView.swift */; };
 		99CE056F29DFA36D001651ED /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056E29DFA36D001651ED /* SlideMenuView.swift */; };
@@ -60,6 +62,8 @@
 		9980CF4129DE60A700AAEC47 /* MessageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 		9980CF4329DF112000AAEC47 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		998903E329DF126D0022AF0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9993C54629E2079D00727DD9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthTextField.swift; sourceTree = "<group>"; };
 		99CE056A29DFA33A001651ED /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
 		99CE056C29DFA357001651ED /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		99CE056E29DFA36D001651ED /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				99CE056A29DFA33A001651ED /* FollowView.swift */,
 				99CE056C29DFA357001651ED /* MenuButtonView.swift */,
 				99CE058029E1F35C001651ED /* SignupButtonView.swift */,
+				9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 		99CE057D29E1EE28001651ED /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				9993C54629E2079D00727DD9 /* RegisterView.swift */,
 				99CE057E29E1EE3F001651ED /* WelcomeView.swift */,
 			);
 			path = Authentication;
@@ -312,11 +318,13 @@
 				99CE058129E1F35C001651ED /* SignupButtonView.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
 				99CE057229E11E4F001651ED /* UserProfileView.swift in Sources */,
+				9993C54929E208EF00727DD9 /* CustomAuthTextField.swift in Sources */,
 				9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */,
 				99CE056B29DFA33A001651ED /* FollowView.swift in Sources */,
 				9909137A29DCA5F300EB2393 /* SearchUserCell.swift in Sources */,
 				9909137829DC81F500EB2393 /* SearchBarView.swift in Sources */,
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
+				9993C54729E2079D00727DD9 /* RegisterView.swift in Sources */,
 				9967788A29DB3A9D00DEC95F /* SearchView.swift in Sources */,
 				9967788829DB3A9400DEC95F /* FeedView.swift in Sources */,
 				9967788C29DB3AA700DEC95F /* MessagesView.swift in Sources */,
