@@ -9,13 +9,17 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        VStack {
-            topBarView
-            Spacer(minLength: 0)
-            welcomeText
-            Spacer(minLength: 0)
-            signUpButtonsView
-            bottomView
+        NavigationView {
+            VStack {
+                topBarView
+                Spacer(minLength: 0)
+                welcomeText
+                Spacer(minLength: 0)
+                signUpButtonsView
+                bottomView
+            }
+            .toolbar(.hidden)
+            .navigationTitle("")
         }
     }
 
