@@ -66,6 +66,7 @@ struct HomeView: View {
     private var tabView: some View {
         TabView {
             FeedView()
+                .toolbar(.hidden)
                 .onTapGesture {
                     selectedIndex = .feed
                 }
@@ -76,6 +77,7 @@ struct HomeView: View {
                 }
                 .tag(SelectedTabViewIndex.feed.rawValue)
             SearchView()
+                .toolbar(.hidden)
                 .onTapGesture {
                     selectedIndex = .search
                 }
@@ -86,6 +88,7 @@ struct HomeView: View {
                 }
                 .tag(SelectedTabViewIndex.search.rawValue)
             NotificationsView()
+                .toolbar(.hidden)
                 .onTapGesture {
                     selectedIndex = .notification
                 }
@@ -96,6 +99,7 @@ struct HomeView: View {
                 }
                 .tag(SelectedTabViewIndex.notification.rawValue)
             MessagesView()
+                .toolbar(.hidden)
                 .onTapGesture {
                     selectedIndex = .messaege
                 }

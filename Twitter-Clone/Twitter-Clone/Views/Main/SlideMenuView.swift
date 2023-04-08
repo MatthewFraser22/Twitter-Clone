@@ -17,37 +17,38 @@ fileprivate enum MenuOptions: String, CaseIterable {
 
 struct SlideMenuView: View {
     @State var showMenu: Bool = false
-    //var edges = UIApplication.shared.windows.first?.safeAreaInsets
+    var edges = 0
     @State var width = UIScreen.main.bounds.width
+    
+    
 
     var body: some View {
-        VStack {
-            HStack(spacing: 0) {
-                VStack(alignment: .leading) {
-                    Image("blankpp")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
-                    
-                    usernameAndFollowerCount
+        GeometryReader { geometryProxy in
+            VStack {
+                HStack(spacing: 0) {
+                    VStack(alignment: .leading) {
+                        Image("blankpp")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .clipShape(Circle())
 
-                    coreMenuItemsAndHelp
+                        usernameAndFollowerCount
+                        coreMenuItemsAndHelp
+                        createOrAddNewAccount
 
-                    createOrAddNewAccount
-
-                    Spacer(minLength: 0)
+                        Spacer(minLength: 0)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 30)
+                    .padding(.top, geometryProxy.safeAreaInsets.top == 0 ? 15 : geometryProxy.safeAreaInsets.top)
+                    .padding(.bottom, geometryProxy.safeAreaInsets.bottom == 0 ? 15 : geometryProxy.safeAreaInsets.bottom)
+                    .frame(width: width-90)
+                    .background(.white)
+                    .ignoresSafeArea(.all, edges: .vertical)
                 }
-                .padding(.horizontal)
-                .padding(.top, 0)
-                //.padding(.top, edges!.top == 0 ? 15 : edges?.top)
-                //.padding(.bottom, edges!.bottom == 0 ? 15 : edges?.bottom)
-                .frame(width: width-90)
-                .background(.white)
-                .ignoresSafeArea(.all)
-                
+
             }
         }
-        .padding()
     }
 
     private var usernameAndFollowerCount: some View {
