@@ -11,6 +11,7 @@ struct RegisterView: View {
     @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct RegisterView: View {
         ZStack {
             HStack {
                 Button {
-                    
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Cancel")
                         .foregroundColor(.blue)
@@ -73,7 +74,7 @@ struct RegisterView: View {
                     
                 } label: {
                     Capsule()
-                        .frame(width: 60, height: 60, alignment: .center)
+                        .frame(width: 60, height: 30, alignment: .center)
                         .foregroundColor(.backgroundblue)
                         .overlay {
                             Text("Next")

@@ -63,7 +63,15 @@ struct WelcomeView: View {
                     .frame(width: getRect().width * 0.35, height: 1)
             }
 
-            SignupButtonView(signupMethod: .createAccount)
+            NavigationLink {
+                RegisterView()
+                    .toolbar(.hidden)
+                
+            } label: {
+                SignupButtonView(signupMethod: .createAccount)
+            }
+
+            
         }
     }
     
@@ -80,8 +88,13 @@ struct WelcomeView: View {
 
             HStack(spacing: 2) {
                 Text("Have an account already? ")
-                Text("Sign in")
-                    .foregroundColor(.backgroundblue)
+                NavigationLink {
+                    LoginView()
+                } label: {
+                    Text("Login")
+                        .foregroundColor(.backgroundblue)
+                }
+
             }
         }
         .padding([.leading, .trailing], 10)
