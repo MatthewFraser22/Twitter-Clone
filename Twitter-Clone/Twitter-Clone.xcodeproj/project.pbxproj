@@ -33,7 +33,7 @@
 		99CE057229E11E4F001651ED /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE057129E11E4F001651ED /* UserProfileView.swift */; };
 		99CE057429E11FF3001651ED /* BlurViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE057329E11FF3001651ED /* BlurViewRepresentable.swift */; };
 		99CE057629E12179001651ED /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE057529E12179001651ED /* View+Extensions.swift */; };
-		99CE057A29E12301001651ED /* TabButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE057929E12301001651ED /* TabButtonView.swift */; };
+		99CE057C29E1EAF3001651ED /* ProfileTabButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE057B29E1EAF3001651ED /* ProfileTabButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 		99CE057129E11E4F001651ED /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		99CE057329E11FF3001651ED /* BlurViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurViewRepresentable.swift; sourceTree = "<group>"; };
 		99CE057529E12179001651ED /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		99CE057929E12301001651ED /* TabButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonView.swift; sourceTree = "<group>"; };
+		99CE057B29E1EAF3001651ED /* ProfileTabButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 		99CE057029E11E43001651ED /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				99CE057B29E1EAF3001651ED /* ProfileTabButtonView.swift */,
 				99CE057129E11E4F001651ED /* UserProfileView.swift */,
-				99CE057929E12301001651ED /* TabButtonView.swift */,
 				99CE057329E11FF3001651ED /* BlurViewRepresentable.swift */,
 			);
 			path = Profile;
@@ -288,8 +288,8 @@
 			files = (
 				9980CF4229DE60A700AAEC47 /* MessageCellView.swift in Sources */,
 				998903E429DF126D0022AF0A /* MainView.swift in Sources */,
-				99CE057A29E12301001651ED /* TabButtonView.swift in Sources */,
 				99CE057429E11FF3001651ED /* BlurViewRepresentable.swift in Sources */,
+				99CE057C29E1EAF3001651ED /* ProfileTabButtonView.swift in Sources */,
 				9980CF4429DF112000AAEC47 /* TopBarView.swift in Sources */,
 				99CE056D29DFA357001651ED /* MenuButtonView.swift in Sources */,
 				9909137329DB8FED00EB2393 /* TweetCellView.swift in Sources */,
