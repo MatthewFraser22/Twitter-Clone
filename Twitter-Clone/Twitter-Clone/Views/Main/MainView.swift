@@ -19,6 +19,7 @@ struct MainView: View {
                         TopBarView(x: $x)
                         HomeView()
                     }
+                    .offset(x: x + width)
 
                     slideMenuView
                 }
