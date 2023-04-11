@@ -1,5 +1,5 @@
 const express = require('express')
-// const { findById } = require('../models/user')
+const { findById } = require('../models/user')
 const User = require('../models/user')
 
 const router = new express.Router()
@@ -57,4 +57,19 @@ router.delete('/users/:id', async (req, res) => {
     }
 })
 
+// FETCH A SPECIFIC USER
+router.get('/users/:id', async (req, res) => {
+
+    try {
+        const user = await User.findById(req.params.id)
+
+        if (!user) {
+            return res.status(404).send()
+        }
+
+        res.status(201).send(user)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
 module.exports = router
