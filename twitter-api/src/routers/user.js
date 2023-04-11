@@ -1,5 +1,5 @@
 const express = require('express')
-const { findById } = require('../models/user')
+// const { findById } = require('../models/user')
 const User = require('../models/user')
 
 const router = new express.Router()
@@ -39,6 +39,21 @@ router.post('/users/login', async (req, res) => {
         res.send({ user, token })
     } catch (err) {
         res.status(400).send(err)
+    }
+});
+
+// DELETE USER
+router.delete('/users/:id', async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+
+        if (!user) {
+        return res.status(400).send()
+        }
+
+        res.send()
+    } catch (err) {
+        res.status(500).send(err)
     }
 })
 
