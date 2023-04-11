@@ -15,6 +15,12 @@ const tweetSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // reference id comes from user object
+        required: true,
+
+    },
     image: {
         type: Buffer // method to store data of image in server
     },
