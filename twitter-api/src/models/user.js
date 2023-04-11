@@ -62,6 +62,14 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// Relationship between the Tweets and the user
+
+userSchema.virtual('tweets', {
+    ref: 'Tweet',
+    localField: '_id',
+    foreignField: 'user'
+})
+
 // Getting the JSON that would be sent to the client and deleting the password
 // delete password prior to GET request
 userSchema.methods.toJSON = function() {
