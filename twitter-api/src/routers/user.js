@@ -7,7 +7,7 @@ const router = new express.Router()
 
 // ADD ENDPOINTS HERE
 
-// CREATE Endpoint
+// CREATE USER ENDPOINT
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
 
@@ -20,12 +20,22 @@ router.post('/users', async (req, res) => {
     }
 })
 
-// GET ENDPOINT fetch users
+// GET ALL USERS ENDPOINT
 router.get('/users', async (req, res) => {
     try {
         const users = await User.find({})
     
         res.send(users)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+// LOGIN USER ENDPOINT
+router.post('/users/login', async (req, res) => {
+    try {
+        const user = await User.findByCredentials(req.body.email, req.body.password)
+        res.send(user)
     } catch (err) {
         res.status(500).send(err)
     }

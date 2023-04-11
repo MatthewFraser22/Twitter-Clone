@@ -81,7 +81,7 @@ userSchema.methods.toJSON = function() {
     return userObject
 }
 
-// Hash the passoword
+// Hash the password
 // use pre to hash the password before saving in the DB
 userSchema.pre('save', async function(next) {
     const user = this
@@ -92,6 +92,25 @@ userSchema.pre('save', async function(next) {
 
     next()
 })
+
+// Authentication Check
+userSchema.statics.findByCredentials = async (email, password) => {
+    const user = await User.findOne({ email })
+
+    if (!user) {
+        throw new Error('Unable to login')
+    }
+
+    // check if password matches
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if (!isMatch) {
+        throw new Error('Unable to login')
+    }
+
+    return user
+}
+
 
 const User = mongoose.model('User', userSchema)
 
