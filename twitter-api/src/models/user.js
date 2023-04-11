@@ -1,7 +1,7 @@
 const mongoose  = require('mongoose')
 const validator = require('validator')
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
