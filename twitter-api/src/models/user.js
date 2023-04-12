@@ -70,7 +70,6 @@ const userSchema = new mongoose.Schema({
 })
 
 // Relationship between the Tweets and the user
-
 userSchema.virtual('tweets', {
     ref: 'Tweet',
     localField: '_id',
