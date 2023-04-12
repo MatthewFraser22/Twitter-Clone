@@ -107,6 +107,7 @@ router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) 
     res.status(400).send({error: error.message})
 })
 
+// GET user avatar
 router.get('/users/:id/avatar', async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
@@ -119,6 +120,51 @@ router.get('/users/:id/avatar', async (req, res) => {
         res.send(user.avatar)
     } catch (err) {
         res.status(404).send(err)
+    }
+})
+
+// Route for following
+router.put('/users/:id/follow', auth, async (req, res) => { // AUTH gives us access to req.user, Controls the header of our requests
+    if (req.user.id != req.params.id) {
+        // if id authenticated from auth is the same as the req.params (the url :id property)
+        try {
+            const user = await User.findById(req.params.id) // User we want to follow
+
+            if (!user.followers.includes(req.user.id)) {
+                await user.updateOne({ $push: { followers: req.user.id } })
+                await req.user.updateOne({ $push: { followings: req.params.id }})
+
+                res.status(200).json('User has been followed')
+            } else {
+                res.status(403).json('you already follow this user')
+            }
+        } catch (err) {
+            res.status(500).json("failed to follow user " + err)
+        }
+    } else { // user is trying to follow themselves
+        res.status(403).json('You cannot follow yourself')
+    }
+})
+
+// UNFOLLOW USER
+router.put('/users/:id/unfollow', auth, async (req, res) => {
+    if (req.user.id != req.params.id) { // userid not equal to their own id
+        const userToUnfollow = await User.findById(req.params.id)
+
+        if (req.user.followings.includes(req.params.id)) {
+            try {
+                await userToUnfollow.updateOne( { $pull: { followers: req.user.id } } )
+                await req.user.updateOne( { $pull: { followings: req.params.id } } )
+    
+                res.status(200).json('Successfully unfollowed')
+            } catch (err) {
+                res.status(500).json('failed to unfollow ' + err)
+            }
+        } else {
+            res.status(403).json('You dont unfollow this user')
+        }
+    } else {
+        res.status(403).json('you cannot unfollow yourself')
     }
 })
 
