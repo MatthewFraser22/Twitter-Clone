@@ -1,8 +1,19 @@
 const express = require('express')
 const { findById } = require('../models/user')
 const User = require('../models/user')
+const multer = require('multer')
+const sharp = require('sharp')
+const auth = require('../middleware/auth')
 
 const router = new express.Router()
+
+// HELPERS
+
+const upload = multer({
+    limits: {
+        fileSize: 100000000
+    }
+})
 
 // ADD ENDPOINTS HERE
 
@@ -72,4 +83,28 @@ router.get('/users/:id', async (req, res) => {
         res.status(500).send(err)
     }
 })
+
+// POST USER PROFILE IMAGE
+router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) => { // asks for a file to be uplaoded by the user 'upload.single('avatar'), single fetches the image and uses as part of the request
+    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250}).png().toBuffer() // storing the code that makes up the png
+
+    if (req.user.avatar != null) {
+        req.user.avatar = null
+        req.user.avatarExists = false
+    }
+
+    req.user.avatar = buffer
+    req.user.avatarExists = true
+
+    try {
+        await req.user.save()
+        res.send(buffer)
+    } catch (err) {
+        res.status(500).send({error: 'failed to save buffer'})
+    }
+    
+}, (error, req, res, next) => {
+    res.status(400).send({error: error.message})
+})
+
 module.exports = router
