@@ -76,6 +76,18 @@ userSchema.virtual('tweets', {
     foreignField: 'user'
 })
 
+userSchema.virtual('notificationsSent', {
+    ref: "Notification", // refers to notification model
+    localField: '_id',
+    foreignField: 'notifiSenderId' // feild name in the notification schema
+})
+
+userSchema.virtual('notificationsSent', {
+    ref: "Notification",
+    localField: '_id',
+    foreignField: 'notifiReceiverId'
+})
+
 // Getting the JSON that would be sent to the client and deleting the password
 // delete password prior to GET request
 userSchema.methods.toJSON = function() {
