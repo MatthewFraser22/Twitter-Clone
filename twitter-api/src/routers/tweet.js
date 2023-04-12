@@ -6,6 +6,7 @@ const Tweet = require('../models/tweet')
 const router = new express.Router()
 
 const auth = require('../middleware/auth')
+const { findById } = require('../models/user')
 
 // HELPER FUNCTIONS
 
@@ -59,6 +60,25 @@ router.get('/tweets', async (req, res) => {
     } catch (err) {
         res.status(500).send(err)
     }
+})
+
+// GET TWEET IMAGE
+router.get('/tweets/:id/image', async (req, res) => {
+    try {
+        const tweet = await Tweet.findById(req.params.id)
+
+        if (!tweet && !tweet.image) {
+            throw new Error('Tweet image doesnt exist')
+        }
+
+        // set the content type of the image - to let the client know its an image
+        res.set('Content-Type', 'image/jpg')
+
+        res.status(201).send(tweet.image)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+
 })
 
 module.exports = router
