@@ -52,6 +52,23 @@ router.post('/tweets', auth, async (req, res) => {
     }
 })
 
+// GET SPECIFIC USER TWEETS
+router.get('/tweets/:id', async (req, res) => {
+    const _id = req.params.id
+
+    try {
+        const tweet = Tweet.find({ user: _id })
+
+        if (!tweet) {
+            return res.status(404).send()
+        }
+
+        res.send(tweet)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
 // GET ALL TWEETS
 router.get('/tweets', async (req, res) => {
     try {
