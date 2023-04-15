@@ -15,7 +15,6 @@ public enum SignupMethod: String {
 
 struct SignupButtonView: View {
     var signupMethod: SignupMethod
-    
 
     var body: some View {
         if signupMethod != .createAccount {
@@ -38,7 +37,6 @@ struct SignupButtonView: View {
                         .stroke(Color.black, lineWidth: 1)
                         .opacity(0.3)
                         .frame(width: 320, height: 60, alignment: .center)
-                    
                 }
             }
         } else {

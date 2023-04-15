@@ -70,8 +70,6 @@ struct WelcomeView: View {
             } label: {
                 SignupButtonView(signupMethod: .createAccount)
             }
-
-            
         }
     }
     

@@ -12,6 +12,7 @@ struct LoginView: View {
     @State var password: String = ""
     @State var emailDone: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @StateObject var authVM: AuthViewModel = AuthViewModel()
 
     var body: some View {
         if !emailDone {
@@ -19,20 +20,20 @@ struct LoginView: View {
                 VStack {
                     topBarView
                     gettingStartedTextView(text: "To get started first enter your phone, email, or @username")
-                    authTextField(placeholderText: "Phone, email, or username", isSecure: false)
+                    authTextField(placeholderText: "Phone, email, or username", isSecure: false, text: $email)
                 }
                 Spacer(minLength: 0)
-                advanceToNextScreenButtonView(buttonText: "Next")
+                nextButton
             }
         } else {
             VStack {
                 VStack {
                     topBarView
                     gettingStartedTextView(text: "Password")
-                    authTextField(placeholderText: "Password", isSecure: true)
+                    authTextField(placeholderText: "Password", isSecure: true, text: $password)
                 }
                 Spacer(minLength: 0)
-                advanceToNextScreenButtonView(buttonText: "Login")
+                loginButton
             }
         }
         
@@ -72,11 +73,11 @@ struct LoginView: View {
             .padding([.horizontal, .top])
     }
 
-    private func authTextField(placeholderText: String, isSecure: Bool) -> some View {
-        CustomAuthTextField(placeholder: placeholderText, isSecureTxtField: isSecure, text: $email)
+    private func authTextField(placeholderText: String, isSecure: Bool, text: Binding<String>) -> some View {
+        CustomAuthTextField(placeholder: placeholderText, isSecureTxtField: isSecure, text: text)
     }
 
-    private func advanceToNextScreenButtonView(buttonText: String) -> some View {
+    private var nextButton: some View {
         VStack {
             Button {
                 self.emailDone.toggle()
@@ -85,7 +86,26 @@ struct LoginView: View {
                     .frame(width: 360, height: 40, alignment: .center)
                     .foregroundColor(.backgroundblue)
                     .overlay {
-                        Text(buttonText)
+                        Text("Next")
+                            .foregroundColor(.white)
+                    }
+            }
+            Text("Forgot Password?")
+                .foregroundColor(.blue)
+        }
+        .padding(.bottom, 4)
+    }
+
+    private var loginButton: some View {
+        VStack {
+            Button {
+                self.authVM.login(email: email, password: password)
+            } label: {
+                Capsule()
+                    .frame(width: 360, height: 40, alignment: .center)
+                    .foregroundColor(.backgroundblue)
+                    .overlay {
+                        Text("Login")
                             .foregroundColor(.white)
                     }
             }

@@ -42,6 +42,8 @@
 		99E720C329E796010005B48C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E720C229E796010005B48C /* User.swift */; };
 		99E720C629E886970005B48C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E720C529E886970005B48C /* AuthViewModel.swift */; };
 		99E720C929E88C170005B48C /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E720C829E88C170005B48C /* AuthServices.swift */; };
+		99E720CB29E89E9F0005B48C /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E720CA29E89E9F0005B48C /* NextButton.swift */; };
+		99E720CD29E9BC340005B48C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E720CC29E9BC340005B48C /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		99E720C229E796010005B48C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		99E720C529E886970005B48C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		99E720C829E88C170005B48C /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		99E720CA29E89E9F0005B48C /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		99E720CC29E9BC340005B48C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 				99CE056C29DFA357001651ED /* MenuButtonView.swift */,
 				99CE058029E1F35C001651ED /* SignupButtonView.swift */,
 				9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */,
+				99E720CA29E89E9F0005B48C /* NextButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				9993C54629E2079D00727DD9 /* RegisterView.swift */,
 				99CE057E29E1EE3F001651ED /* WelcomeView.swift */,
 				9993C54A29E2109700727DD9 /* LoginView.swift */,
+				99E720CC29E9BC340005B48C /* ContentView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -358,12 +364,14 @@
 				99CE057229E11E4F001651ED /* UserProfileView.swift in Sources */,
 				9993C54929E208EF00727DD9 /* CustomAuthTextField.swift in Sources */,
 				9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */,
+				99E720CD29E9BC340005B48C /* ContentView.swift in Sources */,
 				99CE056B29DFA33A001651ED /* FollowView.swift in Sources */,
 				9909137A29DCA5F300EB2393 /* SearchUserCell.swift in Sources */,
 				9909137829DC81F500EB2393 /* SearchBarView.swift in Sources */,
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
 				9993C54B29E2109700727DD9 /* LoginView.swift in Sources */,
 				99E720C929E88C170005B48C /* AuthServices.swift in Sources */,
+				99E720CB29E89E9F0005B48C /* NextButton.swift in Sources */,
 				9993C54729E2079D00727DD9 /* RegisterView.swift in Sources */,
 				9967788A29DB3A9D00DEC95F /* SearchView.swift in Sources */,
 				9967788829DB3A9400DEC95F /* FeedView.swift in Sources */,
