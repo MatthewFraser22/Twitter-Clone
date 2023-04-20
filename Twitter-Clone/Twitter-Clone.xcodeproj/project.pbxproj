@@ -13,6 +13,8 @@
 		9909137A29DCA5F300EB2393 /* SearchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909137929DCA5F300EB2393 /* SearchUserCell.swift */; };
 		9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909137B29DCB28300EB2393 /* UIApplication+Extension.swift */; };
 		9909137E29DCBDE700EB2393 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909137D29DCBDE700EB2393 /* NotificationCell.swift */; };
+		99231E1A29F1BD3B003A8B8D /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99231E1929F1BD3B003A8B8D /* UserLoginRequest.swift */; };
+		99231E1E29F1BF4B003A8B8D /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99231E1D29F1BF4B003A8B8D /* RegisterUserRequest.swift */; };
 		9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */; };
 		9967783529DA3BE200DEC95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783429DA3BE200DEC95F /* Assets.xcassets */; };
 		9967783829DA3BE200DEC95F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783729DA3BE200DEC95F /* Preview Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		9909137929DCA5F300EB2393 /* SearchUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserCell.swift; sourceTree = "<group>"; };
 		9909137B29DCB28300EB2393 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9909137D29DCBDE700EB2393 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		99231E1929F1BD3B003A8B8D /* UserLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
+		99231E1D29F1BF4B003A8B8D /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		9967782D29DA3BE100DEC95F /* Twitter-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneApp.swift; sourceTree = "<group>"; };
 		9967783429DA3BE200DEC95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99231E1B29F1BF01003A8B8D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				99E720C229E796010005B48C /* User.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		99231E1C29F1BF0A003A8B8D /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				99231E1929F1BD3B003A8B8D /* UserLoginRequest.swift */,
+				99231E1D29F1BF4B003A8B8D /* RegisterUserRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		9967782429DA3BE100DEC95F = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +278,8 @@
 		99E720C129E795F40005B48C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				99E720C229E796010005B48C /* User.swift */,
+				99231E1C29F1BF0A003A8B8D /* Requests */,
+				99231E1B29F1BF01003A8B8D /* Response */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +383,7 @@
 				99CE058129E1F35C001651ED /* SignupButtonView.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
 				99E720C629E886970005B48C /* AuthViewModel.swift in Sources */,
+				99231E1E29F1BF4B003A8B8D /* RegisterUserRequest.swift in Sources */,
 				99CE057229E11E4F001651ED /* UserProfileView.swift in Sources */,
 				9993C54929E208EF00727DD9 /* CustomAuthTextField.swift in Sources */,
 				9967789B29DB69FE00DEC95F /* MultilineTextFeildRepresentable.swift in Sources */,
@@ -368,6 +391,7 @@
 				99CE056B29DFA33A001651ED /* FollowView.swift in Sources */,
 				9909137A29DCA5F300EB2393 /* SearchUserCell.swift in Sources */,
 				9909137829DC81F500EB2393 /* SearchBarView.swift in Sources */,
+				99231E1A29F1BD3B003A8B8D /* UserLoginRequest.swift in Sources */,
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
 				9993C54B29E2109700727DD9 /* LoginView.swift in Sources */,
 				99E720C929E88C170005B48C /* AuthServices.swift in Sources */,

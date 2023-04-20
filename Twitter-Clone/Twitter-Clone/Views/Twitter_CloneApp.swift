@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Twitter_CloneApp: App {
+    @StateObject var authViewModel: AuthViewModel = AuthViewModel.shared
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authViewModel)
         }
     }
 }

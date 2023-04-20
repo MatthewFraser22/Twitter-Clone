@@ -12,9 +12,11 @@ class AuthViewModel: ObservableObject {
     @Published var isAuthenticated: Bool = false
     @Published var currentUser: User?
     let defaults = UserDefaults.standard
+    static let shared = AuthViewModel()
 
     init() {
         let token = defaults.string(forKey: "jsonwebtoken")
+        //let remove = defaults.removeObject(forKey: "jsonwebtoken")
 
         if token != nil {
             if let userId = defaults.string(forKey: "userid") {
@@ -48,18 +50,30 @@ class AuthViewModel: ObservableObject {
         AuthServices.login(email: email, password: password) { result in
             switch result {
             case .success(let data):
-                guard let response = try? JSONDecoder().decode(ApiResponse.self, from: data!) else { return }
+                guard let data = data else {
+                    print("Error: No data")
+                    return
+                }
 
-                DispatchQueue.main.async { [self] in
-                    defaults.set(response.token, forKey: "jsonwebtoken")
-                    defaults.set(response.user.id, forKey: "userid")
-                    self.isAuthenticated = true
-                    self.currentUser = response.user
-                    print("logged in")
-                    print(response.user._id)
+                do {
+                    let json = String(data: data, encoding: .utf8)?.data(using: .utf8)
+                    print("JSON: \(json)")
+                    let response = try JSONDecoder().decode(ApiResponse.self, from: data)
+
+                    DispatchQueue.main.async { [self] in
+                        defaults.set(response.token, forKey: "jsonwebtoken")
+                        defaults.set(response.user.id, forKey: "userid")
+                        self.isAuthenticated = true
+                        self.currentUser = response.user
+                        print("logged in")
+                        print(response.user.id)
+                    }
+                } catch let error {
+                    print("ERROR: Failed to decode the data \(error)")
                 }
 
             case .failure(let error):
+                print("FAILURE: \(error)")
                 print(error.localizedDescription)
             }
         }
@@ -68,7 +82,7 @@ class AuthViewModel: ObservableObject {
         AuthServices.register(email: email, username: username, password: password, name: name) { result in
             switch result {
             case .success(let data):
-                guard let response = try? JSONDecoder().decode(ApiResponse.self, from: data!) else { return }
+                guard let response = try? JSONDecoder().decode(User.self, from: data!) else { return }
             case .failure(let error):
                 print(error.localizedDescription)
             }
