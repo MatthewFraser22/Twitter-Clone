@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+
     var body: some View {
         NavigationView {
             VStack {
@@ -88,6 +90,7 @@ struct WelcomeView: View {
                 Text("Have an account already? ")
                 NavigationLink {
                     LoginView()
+                        .toolbar(.hidden)
                 } label: {
                     Text("Login")
                         .foregroundColor(.backgroundblue)

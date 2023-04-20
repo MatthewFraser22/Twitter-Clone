@@ -25,6 +25,28 @@ enum AuthError: Error {
 public class AuthServices {
     public static var requestDomain: String = ""
     
+    static func fetchUser(
+        userId: String,
+        completion: @escaping (_ result: Result<User, Error>) -> Void
+    ) {
+        let url = URL(string: "http://localhost:3000/\(userId)")
+
+        guard let url = url else { return }
+
+        makeGetRequest(
+            url: url,
+            httpHeaders: nil,
+            res: User.self
+        ) { result in
+                switch result {
+                case .success(let user):
+                    completion(.success(user as! User))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+
     static func login(
         email: String,
         password: String,
@@ -81,9 +103,9 @@ public class AuthServices {
             }
     }
 
-    static func makePostRequest(
+    static func makePostRequest<Req: Encodable>(
         url: URL,
-        body: Encodable,
+        body: Req,
         headers: [String : String]?,
         completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void
     ) {
@@ -133,45 +155,85 @@ public class AuthServices {
 
         task.resume()
     }
-    
-    // fetch user
-    static func fetchUser(
-        userId: String,
-        completion: @escaping (_ result: Result<User, AuthError>) -> Void
+
+    static func makeGetRequest<Res: Decodable>(
+        url: URL,
+        httpHeaders: [String : String]?,
+        res: Res.Type,
+        completion: @escaping (_ result: Result<Decodable, NetworkError>) -> Void
     ) {
-        let urlString = URL(string: "http://localhost:3000/users/\(userId)")
+        var session = URLSession.shared
 
-        guard let urlString = urlString else { return }
+        var request = URLRequest(url: url)
 
-        var request = URLRequest(url: urlString)
         request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                completion(.failure(.custom(errorMessage: "Error in url session")))
-                return
-            }
 
+        if let header = httpHeaders {
+            header.forEach { key, value in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        } else {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+        }
+
+        let task = session.dataTask(with: request) { data, response, error in
+            guard error == nil else { return }
+            
             guard let data = data else {
-                completion(.failure(.invalidCredentials))
+                completion(.failure(.noData))
                 return
             }
 
             do {
-                let responseUserData = try JSONDecoder().decode(User.self, from: data)
-                
-                completion(.success(responseUserData))
-            } catch (let error) {
-                print(error.localizedDescription)
+                let response = try JSONDecoder().decode(res.self, from: data)
+                completion(.success(response))
+            } catch {
+                completion(.failure(.decodingError))
             }
         }
 
         task.resume()
     }
+
+//    // fetch user
+//    static func fetchUser(
+//        userId: String,
+//        completion: @escaping (_ result: Result<User, AuthError>) -> Void
+//    ) {
+//        let urlString = URL(string: "http://localhost:3000/users/\(userId)")
+//
+//        guard let urlString = urlString else { return }
+//
+//        var request = URLRequest(url: urlString)
+//        request.httpMethod = "GET"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//
+//        let session = URLSession.shared
+//
+//        let task = session.dataTask(with: request) { data, response, error in
+//            guard error == nil else {
+//                completion(.failure(.custom(errorMessage: "Error in url session")))
+//                return
+//            }
+//
+//            guard let data = data else {
+//                completion(.failure(.invalidCredentials))
+//                return
+//            }
+//
+//            do {
+//                let responseUserData = try JSONDecoder().decode(User.self, from: data)
+//
+//                completion(.success(responseUserData))
+//            } catch (let error) {
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        task.resume()
+//    }
 }
 
 

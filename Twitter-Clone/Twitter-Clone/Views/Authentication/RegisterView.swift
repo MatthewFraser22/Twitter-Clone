@@ -12,7 +12,7 @@ struct RegisterView: View {
     @State var email: String = ""
     @State var password: String = ""
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var authViewModel: AuthViewModel = AuthViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
         VStack {
@@ -72,7 +72,7 @@ struct RegisterView: View {
                 Spacer()
 
                 Button {
-                    self.authViewModel.register(name: name, username: name, email: email, password: password)
+                    self.viewModel.register(name: name, username: name, email: email, password: password)
                 } label: {
                     Capsule()
                         .frame(width: 60, height: 30, alignment: .center)

@@ -11,7 +11,7 @@ struct MainView: View {
     @State var width = UIScreen.main.bounds.width - 90
     @State var x = -UIScreen.main.bounds.width + 90
 
-    // let user: User
+    let user: User
 
     var body: some View {
         NavigationView {

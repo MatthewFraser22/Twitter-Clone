@@ -11,6 +11,7 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     @Published var isAuthenticated: Bool = false
     @Published var currentUser: User?
+
     let defaults = UserDefaults.standard
     static let shared = AuthViewModel()
 
@@ -57,7 +58,6 @@ class AuthViewModel: ObservableObject {
 
                 do {
                     let json = String(data: data, encoding: .utf8)?.data(using: .utf8)
-                    print("JSON: \(json)")
                     let response = try JSONDecoder().decode(ApiResponse.self, from: data)
 
                     DispatchQueue.main.async { [self] in
@@ -78,15 +78,27 @@ class AuthViewModel: ObservableObject {
             }
         }
     }
+
     func register(name: String, username: String, email: String, password: String) {
         AuthServices.register(email: email, username: username, password: password, name: name) { result in
             switch result {
             case .success(let data):
-                guard let response = try? JSONDecoder().decode(User.self, from: data!) else { return }
+                guard let response = try? JSONDecoder().decode(ApiResponse.self, from: data!) else { return }
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
-    func logout() {}
+
+    func logout() {
+        let dictonary = defaults.dictionaryRepresentation()
+
+        dictonary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+
+        DispatchQueue.main.async {
+            self.isAuthenticated = false
+        }
+    }
 }

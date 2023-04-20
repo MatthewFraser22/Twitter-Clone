@@ -12,7 +12,7 @@ struct LoginView: View {
     @State var password: String = ""
     @State var emailDone: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var authVM: AuthViewModel = AuthViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
         if !emailDone {
@@ -99,7 +99,7 @@ struct LoginView: View {
     private var loginButton: some View {
         VStack {
             Button {
-                self.authVM.login(email: email, password: password)
+                self.viewModel.login(email: email, password: password)
             } label: {
                 Capsule()
                     .frame(width: 360, height: 40, alignment: .center)
