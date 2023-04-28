@@ -37,7 +37,7 @@ class AuthViewModel: ObservableObject {
                     self.currentUser = user
                     isAuthenticated = true
                 }
-                
+
             case .failure(let error):
                 print(error)
             }
@@ -57,13 +57,14 @@ class AuthViewModel: ObservableObject {
                 }
 
                 do {
-                    let json = String(data: data, encoding: .utf8)?.data(using: .utf8)
+                    //let json = String(data: data, encoding: .utf8)?.data(using: .utf8)
                     let response = try JSONDecoder().decode(ApiResponse.self, from: data)
 
                     DispatchQueue.main.async { [self] in
                         defaults.set(response.token, forKey: "jsonwebtoken")
                         defaults.set(response.user.id, forKey: "userid")
                         self.isAuthenticated = true
+                        
                         self.currentUser = response.user
                         print("logged in")
                         print(response.user.id)

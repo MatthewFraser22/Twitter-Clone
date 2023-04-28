@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CreateTweetView: View {
     @State var text: String = ""
+    @ObservedObject var vm = TweetViewModel()
+    @Environment(\.presentationMode) var isPresented
 
     var body: some View {
         VStack {
@@ -28,7 +30,11 @@ struct CreateTweetView: View {
             Spacer()
             
             Button {
-                
+                if !text.isEmpty {
+                    self.vm.uploadTweet(text: text)
+                }
+
+                self.isPresented.wrappedValue.dismiss()
             } label: {
                 Text("Tweet")
                     .padding()
