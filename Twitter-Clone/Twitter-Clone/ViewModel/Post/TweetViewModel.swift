@@ -12,7 +12,8 @@ class TweetViewModel: ObservableObject {
     @ObservedObject var authViewModel: AuthViewModel = AuthViewModel.shared
 
     func uploadTweet(
-        text: String
+        text: String,
+        image: UIImage?
         //completion: @escaping (_ result: [String : Any]?) -> Void
     ) {
         guard let user = authViewModel.currentUser else { return }
@@ -35,9 +36,21 @@ class TweetViewModel: ObservableObject {
             ]
         ) { result in
             switch result {
-            case .success(_): break
-                print("Success uploaded tweet")
-            case .failure(let error): break
+            case .success(let data):
+                do {
+                    guard let data = data else { return }
+
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] else { return }
+
+                    guard let image = image else { return }
+
+                    guard let id = json["_id"] else { return }
+
+                    ImageUploader.uploadImage(paramName: "upload", fileName: "image1", image: image, urlPath: "/uploadTweetImage/\(id)")
+                } catch let error {
+                    print(error)
+                }
+            case .failure(let error):
                 print("Failure to uplaod tweet \(error)")
             }
         }

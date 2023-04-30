@@ -53,14 +53,14 @@ class NetworkRequest {
 
             completion(.success(data))
 
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
-                    print(json)
-                }
-            } catch let error {
-                completion(.failure(.decodingError))
-                print(error)
-            }
+//            do {
+//                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
+//                    print(json)
+//                }
+//            } catch let error {
+//                completion(.failure(.decodingError))
+//                print(error)
+//            }
         }
 
         task.resume()
