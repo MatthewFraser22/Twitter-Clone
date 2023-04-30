@@ -29,7 +29,7 @@ public class AuthServices {
         userId: String,
         completion: @escaping (_ result: Result<User, Error>) -> Void
     ) {
-        let url = URL(string: "http://localhost:3000/\(userId)")
+        let url = URL(string: "http://localhost:3000/users/\(userId)")
 
         guard let url = url else { return }
 
@@ -42,6 +42,7 @@ public class AuthServices {
                 case .success(let user):
                     completion(.success(user as! User))
                 case .failure(let error):
+                    print("Error: \(error)")
                     completion(.failure(error))
                 }
             }

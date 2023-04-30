@@ -72,7 +72,7 @@ class NetworkRequest {
         res: Res.Type,
         completion: @escaping (_ result: Result<Decodable, NetworkError>) -> Void
     ) {
-        var session = URLSession.shared
+        let session = URLSession.shared
 
         var request = URLRequest(url: url)
 
@@ -89,16 +89,19 @@ class NetworkRequest {
 
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else { return }
-            
+
             guard let data = data else {
                 completion(.failure(.noData))
                 return
             }
 
             do {
+                let dataString = String(data: data, encoding: .utf8)
+                print(dataString)
                 let response = try JSONDecoder().decode(res.self, from: data)
                 completion(.success(response))
-            } catch {
+            } catch let error {
+                print("error \(error)")
                 completion(.failure(.decodingError))
             }
         }

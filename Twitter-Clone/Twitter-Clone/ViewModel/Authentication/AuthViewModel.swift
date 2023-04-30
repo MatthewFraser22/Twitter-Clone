@@ -39,7 +39,7 @@ class AuthViewModel: ObservableObject {
                 }
 
             case .failure(let error):
-                print(error)
+                print("Error setting user \(error)")
             }
         }
     }
