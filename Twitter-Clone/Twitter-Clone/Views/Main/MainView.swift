@@ -19,7 +19,7 @@ struct MainView: View {
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                     VStack {
                         TopBarView(x: $x)
-                        HomeView()
+                        HomeView(user: user)
                     }
                     .offset(x: x + width)
 

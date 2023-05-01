@@ -18,6 +18,9 @@
 		9960822C29FC2B7F008BBF69 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960822B29FC2B7F008BBF69 /* NetworkRequest.swift */; };
 		9960822E29FC41D1008BBF69 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960822D29FC41D1008BBF69 /* ImagePicker.swift */; };
 		9960823029FC4B9E008BBF69 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960822F29FC4B9E008BBF69 /* ImageUploader.swift */; };
+		996082322A00190E008BBF69 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996082312A00190E008BBF69 /* FeedViewModel.swift */; };
+		996082352A001F8C008BBF69 /* TweetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996082342A001F8C008BBF69 /* TweetCellViewModel.swift */; };
+		996082382A00225F008BBF69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 996082372A00225F008BBF69 /* Kingfisher */; };
 		9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */; };
 		9967783529DA3BE200DEC95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783429DA3BE200DEC95F /* Assets.xcassets */; };
 		9967783829DA3BE200DEC95F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9967783729DA3BE200DEC95F /* Preview Assets.xcassets */; };
@@ -66,6 +69,8 @@
 		9960822B29FC2B7F008BBF69 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		9960822D29FC41D1008BBF69 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9960822F29FC4B9E008BBF69 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		996082312A00190E008BBF69 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		996082342A001F8C008BBF69 /* TweetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellViewModel.swift; sourceTree = "<group>"; };
 		9967782D29DA3BE100DEC95F /* Twitter-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9967783029DA3BE100DEC95F /* Twitter_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneApp.swift; sourceTree = "<group>"; };
 		9967783429DA3BE200DEC95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996082382A00225F008BBF69 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,15 @@
 				99F03FEA29F23F23007E9FE8 /* TweetRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		996082332A001912008BBF69 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				996082312A00190E008BBF69 /* FeedViewModel.swift */,
+				996082342A001F8C008BBF69 /* TweetCellViewModel.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		9967782429DA3BE100DEC95F = {
@@ -302,6 +317,7 @@
 		99E720C429E8868C0005B48C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				996082332A001912008BBF69 /* Feed */,
 				99F03FEF29F2401E007E9FE8 /* Post */,
 				99F03FEE29F24011007E9FE8 /* Authentication */,
 			);
@@ -350,6 +366,9 @@
 			dependencies = (
 			);
 			name = "Twitter-Clone";
+			packageProductDependencies = (
+				996082372A00225F008BBF69 /* Kingfisher */,
+			);
 			productName = "Twitter-Clone";
 			productReference = 9967782D29DA3BE100DEC95F /* Twitter-Clone.app */;
 			productType = "com.apple.product-type.application";
@@ -378,6 +397,9 @@
 				Base,
 			);
 			mainGroup = 9967782429DA3BE100DEC95F;
+			packageReferences = (
+				996082362A00225F008BBF69 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 9967782E29DA3BE100DEC95F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -419,6 +441,7 @@
 				9960823029FC4B9E008BBF69 /* ImageUploader.swift in Sources */,
 				99CE058129E1F35C001651ED /* SignupButtonView.swift in Sources */,
 				9967789829DB496700DEC95F /* CreateTweetView.swift in Sources */,
+				996082352A001F8C008BBF69 /* TweetCellViewModel.swift in Sources */,
 				99E720C629E886970005B48C /* AuthViewModel.swift in Sources */,
 				99231E1E29F1BF4B003A8B8D /* RegisterUserRequest.swift in Sources */,
 				99CE057229E11E4F001651ED /* UserProfileView.swift in Sources */,
@@ -442,6 +465,7 @@
 				9967788329DB389F00DEC95F /* HomeView.swift in Sources */,
 				9967789529DB430800DEC95F /* Color+Extensions.swift in Sources */,
 				9967783129DA3BE100DEC95F /* Twitter_CloneApp.swift in Sources */,
+				996082322A00190E008BBF69 /* FeedViewModel.swift in Sources */,
 				9909137E29DCBDE700EB2393 /* NotificationCell.swift in Sources */,
 				99F03FED29F2400D007E9FE8 /* TweetViewModel.swift in Sources */,
 				9967788F29DB3B0500DEC95F /* NotificationsView.swift in Sources */,
@@ -647,6 +671,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		996082362A00225F008BBF69 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		996082372A00225F008BBF69 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 996082362A00225F008BBF69 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9967782529DA3BE100DEC95F /* Project object */;
 }

@@ -14,6 +14,7 @@ struct Tweet: Identifiable, Decodable {
     let userId: String
     let username: String
     let user: String
+    let image: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -21,5 +22,6 @@ struct Tweet: Identifiable, Decodable {
         case userId
         case username
         case user
+        case image
     }
 }
