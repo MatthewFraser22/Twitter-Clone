@@ -18,6 +18,8 @@ struct HomeView: View {
     @State fileprivate var selectedIndex: SelectedTabViewIndex = .feed
     @State var showCreateTweet: Bool = false
     @State var text: String = ""
+    
+    let user: User
 
     var body: some View {
         VStack {
@@ -65,7 +67,7 @@ struct HomeView: View {
 
     private var tabView: some View {
         TabView {
-            FeedView()
+            FeedView(user: user)
                 .toolbar(.hidden)
                 .onTapGesture {
                     selectedIndex = .feed
@@ -113,8 +115,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

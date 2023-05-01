@@ -96,8 +96,8 @@ class NetworkRequest {
             }
 
             do {
-                let dataString = String(data: data, encoding: .utf8)
-                print(dataString)
+//                let dataString = String(data: data, encoding: .utf8)
+//                print(dataString)
                 let response = try JSONDecoder().decode(res.self, from: data)
                 completion(.success(response))
             } catch let error {

@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TweetCellView: View {
-    var tweet: String
-    var tweetImage: String?
+    @ObservedObject var viewModel: TweetCellViewModel
+    
+    init(viewModel: TweetCellViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
@@ -21,27 +25,39 @@ struct TweetCellView: View {
 
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
-                    Text("Matt")
+                    Text("\(self.viewModel.tweet.username) ")
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
-                    Text("@matt_fraser")
+                    Text("@\(self.viewModel.tweet.username)")
                         .foregroundColor(.primary)
                 }
 
-                Text("\(sampleText)")
+                Text(self.viewModel.tweet.text)
                     .frame(maxHeight: 100, alignment: .top)
 
-                if let image = tweetImage {
-                    GeometryReader { geometryProxy in
-                        Image(image)
+//                if let image = viewModel.tweet.image {
+//                    GeometryReader { geometryProxy in
+//                        Image(image)
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .frame(width: geometryProxy.frame(in: .global).width, height: 250)
+//                            .cornerRadius(15)
+//                    }.frame(height: 250)
+//                }
+                
+                if viewModel.tweet.image == "true" {
+                    GeometryReader { proxy in
+                        KFImage(URL(string: "http://localhost:3000/tweets/\(viewModel.tweet.id)/image"))
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: geometryProxy.frame(in: .global).width, height: 250)
+                            .frame(width: proxy.frame(in: .global).width, height: 250)
                             .cornerRadius(15)
                     }.frame(height: 250)
                 }
+                
                 cellBottom
             }
+            
+            Spacer()
         }
     }
 
@@ -89,10 +105,10 @@ struct TweetCellView: View {
     }
 }
 
-struct TweetCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetCellView(tweet: sampleText)
-    }
-}
+//struct TweetCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TweetCellView(tweet: sampleText)
+//    }
+//}
 
 var sampleText = "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."

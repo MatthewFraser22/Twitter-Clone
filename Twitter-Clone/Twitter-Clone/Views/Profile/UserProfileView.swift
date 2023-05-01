@@ -186,12 +186,12 @@ struct UserProfileView: View {
 
     private var feedView: some View {
         VStack(spacing: 18) {
-            TweetCellView(tweet: "HI", tweetImage: "post")
-            Divider()
-            ForEach(0..<20, id: \.self) { _ in
-                TweetCellView(tweet: "sdsdfrgerger")
-                Divider()
-            }
+//            TweetCellView(tweet: "HI", tweetImage: "post")
+//            Divider()
+//            ForEach(0..<20, id: \.self) { _ in
+//                TweetCellView(tweet: "sdsdfrgerger")
+//                Divider()
+//            }
         }
         .padding(.top)
         .zIndex(0)
