@@ -15,6 +15,8 @@ struct UserProfileView: View {
 
     @Namespace var animation
 
+    let user: User?
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
@@ -61,7 +63,7 @@ struct UserProfileView: View {
 
     private var nameDetailsView: some View {
         VStack(alignment: .center, spacing: 5) {
-            Text("Matt")
+            Text(self.user?.username ?? "")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             Text("150 Tweets")
@@ -115,12 +117,12 @@ struct UserProfileView: View {
     
     private var profileBio: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Matt")
+            Text(self.user?.username ?? "")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
 
-            Text("@matt_fraser")
+            Text("@\(self.user?.username ?? "")")
                 .foregroundColor(.gray)
 
             Text("This is my profile bio")
@@ -227,11 +229,11 @@ struct UserProfileView: View {
     }
 }
 
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView()
-    }
-}
+//struct UserProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserProfileView()
+//    }
+//}
 
 public enum ProfileTabButtonOptions: String, CaseIterable {
     case tweets = "Tweets"

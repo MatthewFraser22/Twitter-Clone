@@ -35,16 +35,6 @@ struct TweetCellView: View {
                 Text(self.viewModel.tweet.text)
                     .frame(maxHeight: 100, alignment: .top)
 
-//                if let image = viewModel.tweet.image {
-//                    GeometryReader { geometryProxy in
-//                        Image(image)
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: geometryProxy.frame(in: .global).width, height: 250)
-//                            .cornerRadius(15)
-//                    }.frame(height: 250)
-//                }
-                
                 if viewModel.tweet.image == "true" {
                     GeometryReader { proxy in
                         KFImage(URL(string: "http://localhost:3000/tweets/\(viewModel.tweet.id)/image"))

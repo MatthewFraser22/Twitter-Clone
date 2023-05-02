@@ -19,18 +19,19 @@ struct SlideMenuView: View {
     @State var showMenu: Bool = false
     var edges = 0
     @State var width = UIScreen.main.bounds.width
-    
-    
+    @ObservedObject var viewModel: AuthViewModel
 
     var body: some View {
         GeometryReader { geometryProxy in
             VStack {
                 HStack(spacing: 0) {
                     VStack(alignment: .leading) {
-                        Image("blankpp")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .clipShape(Circle())
+                        NavigationLink(destination: UserProfileView(user: viewModel.currentUser)) {
+                            Image("blankpp")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .clipShape(Circle())
+                        }
 
                         usernameAndFollowerCount
                         coreMenuItemsAndHelp
@@ -54,19 +55,21 @@ struct SlideMenuView: View {
     private var usernameAndFollowerCount: some View {
         HStack(alignment: .top, spacing: 12) {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Matt")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                
-                Text("@matt_fraser")
+                NavigationLink(destination: UserProfileView(user: viewModel.currentUser)) {
+                    Text(viewModel.currentUser?.username ?? "")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                }
+
+                Text("@\(viewModel.currentUser?.username ?? "")")
                     .foregroundColor(.gray)
-                
+
                 HStack(spacing: 20) {
                     FollowView(count: 12, title: "Following")
                     FollowView(count: 20, title: "Followers")
                 }.padding(.top, 10)
-                
+
                 Divider()
                     .padding(.top, 10)
             }
@@ -170,6 +173,6 @@ struct SlideMenuView: View {
 
 struct SlideMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SlideMenuView()
+        SlideMenuView(viewModel: AuthViewModel.shared)
     }
 }
