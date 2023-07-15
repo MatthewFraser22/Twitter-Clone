@@ -25,8 +25,9 @@ struct SlideMenuView: View {
         GeometryReader { geometryProxy in
             VStack {
                 HStack(spacing: 0) {
+                    #warning("FIX FORCE UNWRAP")
                     VStack(alignment: .leading) {
-                        NavigationLink(destination: UserProfileView(user: viewModel.currentUser)) {
+                        NavigationLink(destination: UserProfileView(user: viewModel.currentUser!)) {
                             Image("blankpp")
                                 .resizable()
                                 .frame(width: 60, height: 60)
@@ -55,7 +56,8 @@ struct SlideMenuView: View {
     private var usernameAndFollowerCount: some View {
         HStack(alignment: .top, spacing: 12) {
             VStack(alignment: .leading, spacing: 12) {
-                NavigationLink(destination: UserProfileView(user: viewModel.currentUser)) {
+                #warning("FIX FORCE UNWRAP")
+                NavigationLink(destination: UserProfileView(user: viewModel.currentUser!)) {
                     Text(viewModel.currentUser?.username ?? "")
                         .font(.title3)
                         .fontWeight(.bold)

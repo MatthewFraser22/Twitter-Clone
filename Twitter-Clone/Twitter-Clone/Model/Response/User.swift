@@ -14,15 +14,15 @@ struct ApiResponse: Decodable {
 
 struct User: Decodable, Identifiable { // decode json into User struct
     var id: String
-    let name: String
+    var name: String
     let username: String
     let email: String
-    let location: String?
-    let bio: String?
-    let website: String?
-    let avatarExists: Bool?
-    let followers: [String]
-    let followings: [String]
+    var location: String?
+    var bio: String?
+    var website: String?
+    var avatarExists: Bool?
+    var followers: [String]
+    var followings: [String]
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

@@ -12,18 +12,24 @@ struct UserProfileView: View {
     @State var titleOffset: CGFloat = 0.0
     @State var tabBarOffset: CGFloat = 0.0
     @State var currentTab: ProfileTabButtonOptions = .tweets
-
+    @State var isEditingprofile = false
+    @ObservedObject var viewModel: ProfileViewModel
     @Namespace var animation
 
     let user: User?
+
+    init(user: User) {
+        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
+    }
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 GeometryReader { (geometryProxy) -> AnyView in
-                    
+
                     let minY = geometryProxy.frame(in: .global).minY
-                    
+
                     DispatchQueue.main.async {
                         self.offset = minY
                     }
@@ -91,7 +97,7 @@ struct UserProfileView: View {
                 Spacer(minLength: 0)
 
                 Button {
-                    
+                    self.isEditingprofile.toggle()
                 } label: {
                     Text("Edit Profile")
                         .foregroundColor(.blue)
@@ -102,6 +108,12 @@ struct UserProfileView: View {
                                 .stroke(Color.blue, lineWidth: 1.5)
                         )
                 }
+                .sheet(isPresented: $isEditingprofile) {
+                    
+                } content: {
+                    EditProfileView(user: $viewModel.user)
+                }
+
 
             }
             .padding(.top, -25) // get overlay on ZStack

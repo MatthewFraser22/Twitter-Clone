@@ -12,10 +12,20 @@ struct EditProfileView: View {
     @State var profileImage: Image?
     @State var imagePickerPresented: Bool = false
     @State private var selectedImage: UIImage?
-    @State var name = ""
-    @State var location = ""
-    @State var bio = ""
-    @State var website = ""
+    @State var name: String
+    @State var location: String
+    @State var bio: String
+    @State var website: String
+
+    @Binding var user: User
+
+    init(user: Binding<User>) {
+        self._user = user
+        self._name = State(initialValue: self._user.name.wrappedValue ?? "")
+        self._location = State(initialValue: self._user.location.wrappedValue ?? "")
+        self._bio = State(initialValue: self._user.bio.wrappedValue ?? "")
+        self._website = State(initialValue: self._user.website.wrappedValue ?? "")
+    }
 
     var body: some View {
         VStack {
@@ -106,6 +116,9 @@ struct EditProfileView: View {
 
                 Spacer()
             }
+            .onAppear {
+                KingfisherManager.shared.cache.clearCache()
+            }
             .padding(.top, -25)
             .padding(.bottom, -10)
             
@@ -181,11 +194,11 @@ struct EditProfileView: View {
     }
 }
 
-struct EditProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfileView()
-    }
-}
+//struct EditProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditProfileView()
+//    }
+//}
 
 extension EditProfileView {
     func loadImage() {

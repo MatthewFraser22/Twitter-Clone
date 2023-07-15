@@ -18,7 +18,7 @@ class AuthViewModel: ObservableObject {
     init() {
         let token = defaults.string(forKey: "jsonwebtoken")
         //let remove = defaults.removeObject(forKey: "jsonwebtoken")
-
+        logout()
         if token != nil {
             if let userId = defaults.string(forKey: "userid") {
                 fetchUser(userId: userId)
