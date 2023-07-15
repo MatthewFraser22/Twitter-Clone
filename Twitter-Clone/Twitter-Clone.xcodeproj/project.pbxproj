@@ -42,6 +42,7 @@
 		9993C54729E2079D00727DD9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993C54629E2079D00727DD9 /* RegisterView.swift */; };
 		9993C54929E208EF00727DD9 /* CustomAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */; };
 		9993C54B29E2109700727DD9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993C54A29E2109700727DD9 /* LoginView.swift */; };
+		99A7A4DF2A6338FE003B82E4 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A7A4DE2A6338FE003B82E4 /* EditProfileViewModel.swift */; };
 		99CE056B29DFA33A001651ED /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056A29DFA33A001651ED /* FollowView.swift */; };
 		99CE056D29DFA357001651ED /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056C29DFA357001651ED /* MenuButtonView.swift */; };
 		99CE056F29DFA36D001651ED /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE056E29DFA36D001651ED /* SlideMenuView.swift */; };
@@ -97,6 +98,7 @@
 		9993C54629E2079D00727DD9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		9993C54829E208EF00727DD9 /* CustomAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthTextField.swift; sourceTree = "<group>"; };
 		9993C54A29E2109700727DD9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		99A7A4DE2A6338FE003B82E4 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		99CE056A29DFA33A001651ED /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
 		99CE056C29DFA357001651ED /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		99CE056E29DFA36D001651ED /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				996082402A0091BF008BBF69 /* ProfileViewModel.swift */,
+				99A7A4DE2A6338FE003B82E4 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				9909137C29DCB28300EB2393 /* UIApplication+Extension.swift in Sources */,
 				9993C54B29E2109700727DD9 /* LoginView.swift in Sources */,
 				99E720C929E88C170005B48C /* AuthServices.swift in Sources */,
+				99A7A4DF2A6338FE003B82E4 /* EditProfileViewModel.swift in Sources */,
 				9960822C29FC2B7F008BBF69 /* NetworkRequest.swift in Sources */,
 				99E720CB29E89E9F0005B48C /* NextButton.swift in Sources */,
 				9993C54729E2079D00727DD9 /* RegisterView.swift in Sources */,

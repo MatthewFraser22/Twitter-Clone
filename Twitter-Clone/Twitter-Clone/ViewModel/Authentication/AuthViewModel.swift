@@ -16,18 +16,23 @@ class AuthViewModel: ObservableObject {
     static let shared = AuthViewModel()
 
     init() {
-        let token = defaults.string(forKey: "jsonwebtoken")
+       let token = defaults.string(forKey: "jsonwebtoken")
         //let remove = defaults.removeObject(forKey: "jsonwebtoken")
         logout()
-        if token != nil {
-            if let userId = defaults.string(forKey: "userid") {
-                fetchUser(userId: userId)
-            }
-        } else {
-            isAuthenticated = false
-        }
+//        if token != nil {
+//            if let userId = defaults.string(forKey: "userid") {
+//                fetchUser(userId: userId)
+//            }
+//        } else {
+//            isAuthenticated = false
+//        }
+		generateTestUser()
     }
 
+	func generateTestUser() {
+		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1Y2ZiYzE4MDU3ODMxNDVkYTUyNDEiLCJpYXQiOjE2ODEzMTk1NjZ9.5ZdUEuFcSQylpIlDvX358bWAJd5Q8THe7jcP8Fbx13Y"
+		fetchUser(userId: "64b30a621ceee74caf8671a3")
+	}
     func fetchUser(userId: String) {
         AuthServices.fetchUser(userId: userId) { result in
             switch result {
@@ -84,7 +89,24 @@ class AuthViewModel: ObservableObject {
         AuthServices.register(email: email, username: username, password: password, name: name) { result in
             switch result {
             case .success(let data):
-                guard let response = try? JSONDecoder().decode(ApiResponse.self, from: data!) else { return }
+				guard let data = data else {
+					print("Error data is nil could not register user!")
+					return
+				}
+
+				do {
+					let response = try JSONDecoder().decode(ApiResponse.self, from: data)
+					DispatchQueue.main.async { [weak self] in
+						guard let self = self else { return }
+
+						defaults.set(response.token, forKey: "jsonwebtoken")
+						defaults.set(response.user.id, forKey: "userid")
+						self.currentUser = response.user
+						self.isAuthenticated = true
+					}
+				} catch let error {
+					print("Error registering account failed to decode response data with error: \(error)")
+				}
             case .failure(let error):
                 print(error.localizedDescription)
             }

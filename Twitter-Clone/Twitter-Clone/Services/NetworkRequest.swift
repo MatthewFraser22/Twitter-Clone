@@ -79,7 +79,7 @@ class NetworkRequest {
         request.httpMethod = "GET"
 
         if let header = httpHeaders {
-            header.forEach { key, value in
+            header.forEach { (key, value) in
                 request.addValue(value, forHTTPHeaderField: key)
             }
         } else {
